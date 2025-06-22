@@ -29,6 +29,7 @@ Time-based ban system
 ✅ Modular Handlers - Separated by functionality
 ✅ Error-Resilient - Comprehensive input validation
 ✅ Admin Tools - Report/ban system with audit trail
+```mermaid
 erDiagram
     users ||--o{ invites : "user_id"
     users ||--o{ reports : "user_id"
@@ -55,6 +56,7 @@ erDiagram
         integer reporter_user_id FK
         datetime timestamp
     }
+```
 
 🚀 For Admins
 /ban [user_id] [days] - Manual ban control
