@@ -1,0 +1,77 @@
+Telegram Game Allies Finder Bot 🎮🤖
+Advanced matchmaking platform for gamers with smart moderation and invite system
+
+🔥 Key Features
+Intelligent Matchmaking - Finds teammates based on game, rank, and preferences
+
+Two-Way Invite System - Send/accept invites with real-time notifications
+
+Profile Moderation - Auto-ban system for users with multiple reports
+
+Rich Profiles - Game, rank, description with search status toggle
+
+Activity History - Track all sent/received invites
+
+🛠 Tech Stack
+python-telegram-bot (v20+) with async support
+
+SQLite3 with proper connection pooling
+
+Context-aware conversation states
+
+Structured logging with timestamps
+
+Time-based ban system
+
+⚙️ Architecture Highlights
+✅ Clean State Management - Context-aware user sessions
+✅ Atomic DB Operations - Thread-safe SQL transactions
+✅ Modular Handlers - Separated by functionality
+✅ Error-Resilient - Comprehensive input validation
+✅ Admin Tools - Report/ban system with audit trail
+erDiagram
+    users ||--o{ invites : "user_id"
+    users ||--o{ reports : "user_id"
+    users {
+        integer user_id PK
+        text username
+        text game
+        text rank
+        text description
+        boolean is_searching
+        boolean is_banned
+        datetime ban_end
+    }
+    invites {
+        integer id PK
+        integer from_user_id FK
+        integer to_user_id FK
+        text status
+        datetime timestamp
+    }
+    reports {
+        integer id PK
+        integer reported_user_id FK
+        integer reporter_user_id FK
+        datetime timestamp
+    }
+
+🚀 For Admins
+/ban [user_id] [days] - Manual ban control
+
+Auto-unban system with timeouts
+
+Report analytics dashboard (5+ reports = auto-ban)
+
+"Production-ready gaming matchmaker implementing best practices for user matching, moderation, and Telegram bot development."
+
+Why This Stands Out
+Smart Anti-Spam - Rate-limiting and auto-ban based on community reports
+
+Context-Aware UI - Dynamic keyboards based on user state
+
+Data Integrity - ACID-compliant database operations
+
+Scalable - Prepared for 10k+ users with optimized queries
+
+👉 Perfect for gaming communities needing reliable teammate finder with built-in safety features.
