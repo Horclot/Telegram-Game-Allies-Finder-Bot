@@ -51,3 +51,8 @@ erDiagram
         datetime timestamp
     }
 ```
+
+## 🚀 For Admins  
+- `/ban [user_id] [days]` - Manual ban control  
+- Auto-unban system with timeouts  
+- Report analytics dashboard (5+ reports = auto-ban)
